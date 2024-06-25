@@ -1,9 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using Comex;
 using System.Text.Json;
 
-// lstpt = lista de produtos para ser utilizada durante os testes
-var lstpt = new List<Produto>
+var listaDeProduto = new List<Produto>
 {
     new Produto("Notebook")
     {
@@ -31,14 +30,11 @@ var lstpt = new List<Produto>
     }
 };
 
-// ltspd = lista de pedidos para ser utilizada durante os testes
-var ltspd = new List<Pedido>();
+var listaDePedido = new List<Pedido>();
 
-// ms = mensagem de boas veindas do projeto
-string ms = "Boas vindas ao COMEX";
+string mensagemDeBoasVindas = "Boas vindas ao COMEX";
 
-// Método que tem função de Exibir o Logo
-void Elg()
+void ExibiLogoDoSistema()
 {
     Console.WriteLine(@"
 ────────────────────────────────────────────────────────────────────────────────────────
@@ -54,13 +50,13 @@ void Elg()
 ─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░██──────────██░░██─██░░░░░░░░░░██─██░░░░██──██░░░░██─
 ─██████████████─██████████████─██████──────────██████─██████████████─████████──████████─
 ────────────────────────────────────────────────────────────────────────────────────────");
-    Console.WriteLine(ms);
+    Console.WriteLine(mensagemDeBoasVindas);
 }
 
 // Método que tem função de Exibir Opcoes Do Menu
-async Task Epdm()
+async Task ExibiOpcoesDoMenu()
 {
-    Elg();
+    ExibiLogoDoSistema();
     Console.WriteLine("\nDigite 1 Criar Produto");
     Console.WriteLine("Digite 2 Listar Produtos");
     Console.WriteLine("Digite 3 Consultar API Externa");
@@ -96,12 +92,12 @@ async Task Epdm()
             string quantidadeDoProduto = Console.ReadLine();
             produto.Quantidade = int.Parse(quantidadeDoProduto);
 
-            lstpt.Add(produto);
+            listaDeProduto.Add(produto);
             Console.WriteLine($"O Produto {produto.Nome} foi registrado com sucesso!");
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case 2:
             Console.Clear();
@@ -109,15 +105,15 @@ async Task Epdm()
             //ExibirTituloDaOpcao("Exibindo todos os produtos registradoss na nossa aplicação");
             Console.WriteLine("Exibindo todos os produtos registradoss na nossa aplicação");
 
-            for (int i = 0; i < lstpt.Count; i++)
+            for (int i = 0; i < listaDeProduto.Count; i++)
             {
-                Console.WriteLine($"Produto: {lstpt[i].Nome}, Preço: {lstpt[i].PrecoUnitario:F2}");
+                Console.WriteLine($"Produto: {listaDeProduto[i].Nome}, Preço: {listaDeProduto[i].PrecoUnitario:F2}");
             }
 
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case 3:
             using (HttpClient client = new HttpClient())
@@ -137,7 +133,7 @@ async Task Epdm()
                     Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
                     Console.ReadKey();
                     Console.Clear();
-                    await Epdm();
+                    await ExibiOpcoesDoMenu();
                 }
                 catch (Exception ex)
                 {
@@ -146,7 +142,7 @@ async Task Epdm()
             }
             break;
         case 4:
-            var produtosOrdenados = lstpt.OrderBy(p => p.Nome).ToList();
+            var produtosOrdenados = listaDeProduto.OrderBy(p => p.Nome).ToList();
             Console.Clear();
             Console.WriteLine("Produtos ordenados pelo título:");
             for (int i = 0; i < produtosOrdenados.Count; i++)
@@ -156,10 +152,10 @@ async Task Epdm()
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case 5:
-            var produtosOrdenadosPorPreco = lstpt.OrderBy(p => p.PrecoUnitario).ToList();
+            var produtosOrdenadosPorPreco = listaDeProduto.OrderBy(p => p.PrecoUnitario).ToList();
             Console.Clear();
             Console.WriteLine("Produtos ordenados pelo preço:");
             for (int i = 0; i < produtosOrdenadosPorPreco.Count; i++)
@@ -169,7 +165,7 @@ async Task Epdm()
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case 6:
             Console.Clear();
@@ -183,15 +179,15 @@ async Task Epdm()
             var pedido = new Pedido(cliente);
 
             Console.WriteLine("\nProdutos disponíveis:");
-            for (int i = 0; i < lstpt.Count; i++)
+            for (int i = 0; i < listaDeProduto.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {lstpt[i].Nome}");
+                Console.WriteLine($"{i + 1}. {listaDeProduto[i].Nome}");
             }
 
             Console.Write("Digite o número do produto que deseja adicionar (ou 0 para finalizar): ");
             int numeroProduto = int.Parse(Console.ReadLine()!);
 
-            var produtoEscolhido = lstpt[numeroProduto - 1];
+            var produtoEscolhido = listaDeProduto[numeroProduto - 1];
 
             Console.Write("Digite a quantidade: ");
             int quantidade = int.Parse(Console.ReadLine()!);
@@ -202,18 +198,18 @@ async Task Epdm()
             Console.WriteLine($"Item adicionado: {itemDePedido}\n");
 
 
-            ltspd.Add(pedido);
+            listaDePedido.Add(pedido);
             Console.WriteLine($"\nPedido criado com sucesso:\n{pedido}");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case 7:
             Console.Clear();
             Console.WriteLine("Exibindo todos os produtos registradoss na nossa aplicação");
 
-            var pedidosOrdenados = ltspd.OrderBy(p => p.Cliente.Nome).ToList();
+            var pedidosOrdenados = listaDePedido.OrderBy(p => p.Cliente.Nome).ToList();
 
             foreach (var Pedido in pedidosOrdenados)
             {
@@ -223,7 +219,7 @@ async Task Epdm()
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-            await Epdm();
+            await ExibiOpcoesDoMenu();
             break;
         case -1:
             Console.WriteLine("Tchau tchau :)");
@@ -234,7 +230,7 @@ async Task Epdm()
     }
 }
 
-await Epdm();
+await ExibiOpcoesDoMenu();
 
 
 
