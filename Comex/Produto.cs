@@ -16,4 +16,11 @@ public class Produto
     [JsonPropertyName("price")]
     public double PrecoUnitario { get; set; }
     public int Quantidade { get; set; }
+
+    public string ExibiInformacaoDoProduto()
+    {
+        return $"Produto: {Nome} \n" +
+                $"Descrição: {Descricao} \n" +
+                $"Preco Unitário: {PrecoUnitario} \n";
+    }
 }
