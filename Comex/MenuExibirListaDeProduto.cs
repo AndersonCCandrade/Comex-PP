@@ -14,8 +14,6 @@ public class MenuExibirListaDeProduto
             Console.WriteLine($"Produto: {listaDeProduto[i].Nome}, Preço: {listaDeProduto[i].PrecoUnitario:F2}");
         }
 
-        Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
-        Console.Clear();
+        ConcluirOperacaoDoMenu.FinalizarMenu();
     }
 }

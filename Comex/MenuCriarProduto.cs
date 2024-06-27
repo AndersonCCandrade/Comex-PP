@@ -25,9 +25,7 @@ public class MenuCriarProduto
         produto.Quantidade = int.Parse(quantidadeDoProduto);
               
         Console.WriteLine($"O Produto {produto.Nome} foi registrado com sucesso!");
-        Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
-        Console.Clear();
+        ConcluirOperacaoDoMenu.FinalizarMenu();
 
         return produto;           
 

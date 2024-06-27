@@ -35,8 +35,7 @@ public class MenuCriarPedido
 
         
         Console.WriteLine($"\nPedido criado com sucesso:\n{pedido}");
-        Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
-        Console.ReadKey();
+        ConcluirOperacaoDoMenu.FinalizarMenu();
 
         return pedido;
     }

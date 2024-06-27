@@ -21,7 +21,6 @@ public class MenuExibirListaDePedido
         {
             Console.WriteLine("\nNão existe pedido na lista");
         }
-        Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
+        ConcluirOperacaoDoMenu.FinalizarMenu();
     }
 }

@@ -58,8 +58,7 @@ public class Menu
                 break;
             default:
                 Console.WriteLine("Opção inválida");
-                Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
-                Console.ReadKey();
+                ConcluirOperacaoDoMenu.FinalizarMenu();
                 break;
         }
         if (opcaoEscolhidaNumerica != -1)

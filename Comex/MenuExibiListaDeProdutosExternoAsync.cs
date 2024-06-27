@@ -23,8 +23,6 @@ public class MenuExibiListaDeProdutosExternoAsync
             var produtos = JsonSerializer.Deserialize<List<Produto>>(resposta)!;
             produtos.ForEach(produto => Console.WriteLine(produto.ExibiInformacaoDoProduto()));
         }
-        Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
-        Console.Clear();
+        ConcluirOperacaoDoMenu.FinalizarMenu();
     }
 }
