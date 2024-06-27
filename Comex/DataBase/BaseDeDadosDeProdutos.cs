@@ -1,4 +1,6 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+
+namespace Comex.DataBase;
 
 public static class DataBaseDeProdutos
 {
@@ -32,5 +34,5 @@ public static class DataBaseDeProdutos
             }
         };
         return ListaDeProdutos;
-    }    
+    }
 }

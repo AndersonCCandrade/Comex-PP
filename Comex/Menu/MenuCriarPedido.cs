@@ -1,4 +1,7 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+using Comex.Util;
+
+namespace Comex.Menu;
 
 public class MenuCriarPedido
 {
@@ -33,7 +36,7 @@ public class MenuCriarPedido
 
         Console.WriteLine($"Item adicionado: {itemDePedido}\n");
 
-        
+
         Console.WriteLine($"\nPedido criado com sucesso:\n{pedido}");
         ConcluirOperacaoDoMenu.FinalizarMenu();
 

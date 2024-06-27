@@ -1,4 +1,4 @@
-﻿namespace Comex;
+﻿namespace Comex.Util;
 
 public static class ConcluirOperacaoDoMenu
 {

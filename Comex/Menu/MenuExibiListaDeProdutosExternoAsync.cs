@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
+using Comex.Modelo;
+using Comex.Util;
 
-namespace Comex;
+namespace Comex.Menu;
 
 public class MenuExibiListaDeProdutosExternoAsync
 {
@@ -8,7 +10,7 @@ public class MenuExibiListaDeProdutosExternoAsync
     private string resposta;
     public MenuExibiListaDeProdutosExternoAsync()
     {
-        requisicaoAPIUtil =  new RequisicaoAPIUtil();
+        requisicaoAPIUtil = new RequisicaoAPIUtil();
         resposta = requisicaoAPIUtil.conexao().Result;
     }
 
@@ -17,9 +19,9 @@ public class MenuExibiListaDeProdutosExternoAsync
         if (resposta.Contains("Temos um problema:"))
         {
             Console.WriteLine(resposta);
-        } 
-        else 
-        { 
+        }
+        else
+        {
             var produtos = JsonSerializer.Deserialize<List<Produto>>(resposta)!;
             produtos.ForEach(produto => Console.WriteLine(produto.ExibiInformacaoDoProduto()));
         }

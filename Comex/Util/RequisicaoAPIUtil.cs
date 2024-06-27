@@ -1,4 +1,4 @@
-﻿namespace Comex
+﻿namespace Comex.Util
 {
     public class RequisicaoAPIUtil
     {
@@ -13,7 +13,7 @@
             }
             catch (Exception ex)
             {
-                
+
                 return $"Temos um problema: {ex.Message}";
             }
 

@@ -1,16 +1,19 @@
 ﻿using System.Text.Json;
+using Comex.DataBase;
+using Comex.Modelo;
+using Comex.Util;
 
-namespace Comex;
+namespace Comex.Menu;
 public class Menu
 {
     List<Produto> listaDeProduto = DataBaseDeProdutos.ListaDeProdutos();
-    List<Pedido> listaDePedido = new ();
-    MenuCriarProduto cadastroDeProduto = new ();
-    MenuExibirListaDeProduto exibirDeProdutos = new ();
-    MenuExibiListaDeProdutosExternoAsync exibirProdutosDelistaExterna = new ();
-    MenuOrdernaListaDeProduto ordenaListaDeProdutos = new ();
-    MenuCriarPedido menuCriarPedido = new ();
-    MenuExibirListaDePedido exibirPedido = new ();
+    List<Pedido> listaDePedido = new();
+    MenuCriarProduto cadastroDeProduto = new();
+    MenuExibirListaDeProduto exibirDeProdutos = new();
+    MenuExibiListaDeProdutosExternoAsync exibirProdutosDelistaExterna = new();
+    MenuOrdernaListaDeProduto ordenaListaDeProdutos = new();
+    MenuCriarPedido menuCriarPedido = new();
+    MenuExibirListaDePedido exibirPedido = new();
     public async Task ExibiOpcoesDoMenu()
     {
         Console.Clear();
@@ -31,16 +34,16 @@ public class Menu
 
         switch (opcaoEscolhidaNumerica)
         {
-            case 1:                
-                listaDeProduto.Add(cadastroDeProduto.CriaNovoProdutoAdicionaNaLista());                
+            case 1:
+                listaDeProduto.Add(cadastroDeProduto.CriaNovoProdutoAdicionaNaLista());
                 break;
-            case 2:                
+            case 2:
                 exibirDeProdutos.ExibiListaDeProdutos(listaDeProduto);
                 break;
-            case 3:                
+            case 3:
                 exibirProdutosDelistaExterna.ExibiListaDeProdutosExterna();
                 break;
-            case 4:                
+            case 4:
                 ordenaListaDeProdutos.OrdenaProdutosPorTitulo(listaDeProduto);
                 break;
             case 5:
@@ -65,5 +68,5 @@ public class Menu
         {
             await ExibiOpcoesDoMenu();
         }
-    }     
+    }
 }

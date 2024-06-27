@@ -1,4 +1,7 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+using Comex.Util;
+
+namespace Comex.Menu;
 
 public class MenuExibirListaDeProduto
 {

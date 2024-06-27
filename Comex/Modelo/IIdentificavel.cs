@@ -1,4 +1,4 @@
-﻿namespace Comex;
+﻿namespace Comex.Modelo;
 
 public interface IIdentificavel
 {

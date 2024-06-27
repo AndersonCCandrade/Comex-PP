@@ -1,7 +1,10 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+using Comex.Util;
+
+namespace Comex.Menu;
 
 public class MenuOrdernaListaDeProduto
-{     
+{
     public void OrdenaProdutosPorTitulo(List<Produto> listaDeProduto)
     {
         var produtosOrdenados = listaDeProduto.OrderBy(p => p.Nome).ToList();

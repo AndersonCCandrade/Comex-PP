@@ -1,8 +1,11 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+using Comex.Util;
+
+namespace Comex.Menu;
 
 public class MenuCriarProduto
 {
-    
+
     public Produto CriaNovoProdutoAdicionaNaLista()
     {
         Console.Clear();
@@ -23,11 +26,11 @@ public class MenuCriarProduto
         Console.Write("Digite a quantidade do Produto: ");
         string quantidadeDoProduto = Console.ReadLine();
         produto.Quantidade = int.Parse(quantidadeDoProduto);
-              
+
         Console.WriteLine($"O Produto {produto.Nome} foi registrado com sucesso!");
         ConcluirOperacaoDoMenu.FinalizarMenu();
 
-        return produto;           
+        return produto;
 
     }
 }

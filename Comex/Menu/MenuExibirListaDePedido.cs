@@ -1,4 +1,7 @@
-﻿namespace Comex;
+﻿using Comex.Modelo;
+using Comex.Util;
+
+namespace Comex.Menu;
 
 public class MenuExibirListaDePedido
 {
@@ -11,13 +14,13 @@ public class MenuExibirListaDePedido
         {
 
             var pedidosOrdenados = listaDePedido.OrderBy(p => p.Cliente.Nome).ToList();
-            
+
             foreach (var Pedido in pedidosOrdenados)
             {
                 Console.WriteLine($"Cliente: {Pedido.Cliente.Nome}, Total: {Pedido.Total:F2}");
             }
         }
-        else 
+        else
         {
             Console.WriteLine("\nNão existe pedido na lista");
         }
