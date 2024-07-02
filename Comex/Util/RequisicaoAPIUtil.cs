@@ -4,11 +4,11 @@
     {
         HttpClient client = new HttpClient();
 
-        public async Task<string> conexao()
+        public async Task<string> conexao(string uri = "https://fakestoreapi.com/products")
         {
             try
             {
-                string resultado = await client.GetStringAsync("https://fakestoreapi.com/products");
+                string resultado = await client.GetStringAsync(uri);
                 return resultado;
             }
             catch (Exception ex)

@@ -16,6 +16,7 @@ public class MenuExibiListaDeProdutosExternoAsync
 
     public void ExibiListaDeProdutosExterna()
     {
+        Console.WriteLine();
         if (resposta.Contains("Temos um problema:"))
         {
             Console.WriteLine(resposta);
